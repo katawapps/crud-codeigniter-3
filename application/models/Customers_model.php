@@ -1,7 +1,7 @@
 <?php 
 
  
-class Clientes_model extends CI_Model
+class Customers_model extends CI_Model
 {
 	
 	private $tabla;
