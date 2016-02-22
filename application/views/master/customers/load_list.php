@@ -35,8 +35,8 @@
                       ?>
                       <tr>
                         <td><?php echo $i+1 ?></td>
-                        <td><?php echo $items[$i]->nombre ?></td>
-                        <td><?php echo $items[$i]->apellidos ?></td>
+                        <td><?php echo $items[$i]->name ?></td>
+                        <td><?php echo $items[$i]->last_name ?></td>
                         <td><?php echo $items[$i]->dni ?></td>
                         <td>
                           <a href="<?php echo base_url($controller.'/edit/'.$items[$i]->id) ?>" class="btn btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
