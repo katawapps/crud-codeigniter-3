@@ -3,9 +3,12 @@
 
 if(!function_exists('_json'))
 {
-	function _json()
+	function _json($status = FALSE,$message=FALSE)
 	{
-		echo "json";
+		if ($status) 
+			exit(json_encode(array('status'=>TRUE,'message'=>$message)));
+		else
+			exit(json_encode(array('status'=>FALSE)));
  
 	}
 }
