@@ -18,7 +18,7 @@ class Customers extends CI_Controller {
 
         $this->load->model("Customers_model");
 
-     
+
         
 	}    
 
@@ -38,11 +38,11 @@ class Customers extends CI_Controller {
 
 		if ($_result) 
 
-			_json(TRUE,'Customers Add Ok');	
+			_build_json(TRUE,'Customers Add Ok');	
 
 		else
 
-			_json();	  
+			_build_json();	  
         
 
 	}
@@ -55,7 +55,7 @@ class Customers extends CI_Controller {
 	public function show()
 	{
 
-		 
+		
 
  
 		$data["controller"] = $this->controller;
@@ -125,11 +125,11 @@ class Customers extends CI_Controller {
 
 		if ($_result) 
 
-			_json(TRUE,'Customers Update Ok');	
+			_build_json(TRUE,'Customers Update Ok');	
 
 		else
 
-			_json();	  
+			_build_json();	  
         
 
 
@@ -156,11 +156,11 @@ class Customers extends CI_Controller {
 		 
 		if ($_result) 
 
-			_json(TRUE,'Customers Delete Ok');	
+			_build_json(TRUE,'Customers Delete Ok');	
 
 		else
 
-			_json();	  
+			_build_json();	  
         
 
 	}

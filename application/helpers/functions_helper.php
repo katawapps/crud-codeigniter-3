@@ -1,9 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
 
-if(!function_exists('_json'))
+if(!function_exists('_build_json'))
 {
-	function _json($status = FALSE,$message=FALSE)
+	function _build_json($status = FALSE,$message=FALSE)
 	{
 		if ($status) 
 			exit(json_encode(array('status'=>TRUE,'message'=>$message)));
@@ -11,5 +11,23 @@ if(!function_exists('_json'))
 			exit(json_encode(array('status'=>FALSE)));
  
 	}
+}
+
+
+if (!function_exists('_is_ajax_request')) {
+
+    function _is_ajax_request($_return = FALSE) {
+
+        $CI = &get_instance();
+
+        if (!$CI->input->is_ajax_request())
+            if (!$_return)
+                _build_json();
+            else
+                return FALSE;
+
+        return TRUE;
+    }
+
 }
  
