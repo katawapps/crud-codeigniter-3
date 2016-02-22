@@ -216,6 +216,8 @@
     <!-- Alert -->
     <script src="<?php echo base_url('public/plugins/bootbox.min.js') ?>"></script>
 
+    <script src="<?php echo base_url('public/Common.js') ?>"></script>
+
       <!-- DataTables -->
     <script src="<?php echo base_url('public/plugins/datatables/jquery.dataTables.min.js') ?>"></script>
     <script src="<?php echo base_url('public/plugins/datatables/dataTables.bootstrap.min.js') ?>"></script>

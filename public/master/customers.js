@@ -6,14 +6,14 @@ $(document).on('ready', function() {
 	  $('.btnAdd').on('click', function(event) {
 	  	event.preventDefault();
 	 
-	 	alert("registrar")
+	 		Common._alert_succes("Cliente agregado")
 
 	  });
 
 	    $('.btnUpdate').on('click', function(event) {
 	  	event.preventDefault();
 	 
-	 	alert("registrar")
+	 	Common._alert_succes("Cliente actualizado")
 
 	  });
 	   
