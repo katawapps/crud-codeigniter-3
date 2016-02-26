@@ -30,7 +30,7 @@ class Customers_model extends CI_Model
         if (empty($_post)) 
             return false;
         
-        if (is_numeric($id))
+        if (!is_numeric($id))
             return false;
         
        

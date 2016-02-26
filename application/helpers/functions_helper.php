@@ -8,12 +8,11 @@ if(!function_exists('_build_json'))
 		if ($status) 
 			exit(json_encode(array('status'=>TRUE,'message'=>$message)));
 		else
-			exit(json_encode(array('status'=>FALSE)));
+			exit(json_encode(array('status'=>FALSE,'message'=>$message)));
  
 	}
 }
-
-
+ 
 if (!function_exists('_is_ajax_request')) {
 
     function _is_ajax_request($_return = FALSE) {

@@ -22,11 +22,12 @@
     <!-- form start -->
     <form class="form-horizontal" action="<?php echo base_url($controller.'/update') ?>" method="POST">
       <div class="box-body">
+      <input type="hidden" name="id" id="id" value="<?php echo $id ?>">
         <div class="form-group">
           <label for="name" class="col-sm-2 control-label">NOmbre</label>
           <div class="col-sm-4">
           
-            <input  type="text" class="form-control" id="name" name="name" placeholder="Nombre">
+            <input value="<?php echo $item->name ?>"  type="text" class="form-control" id="name" name="name" placeholder="Nombre">
              
           </div>
         </div>
@@ -35,7 +36,7 @@
           <label for="last_name" class="col-sm-2 control-label">Apellidos</label>
           <div class="col-sm-4">
           
-            <input  type="text" class="form-control" id="last_name" name="last_name" placeholder="Apellidos">
+            <input value="<?php echo $item->last_name ?>"  type="text" class="form-control" id="last_name" name="last_name" placeholder="Apellidos">
             
           </div>
         </div>
@@ -43,7 +44,7 @@
         <div class="form-group">
           <label for="dni" class="col-sm-2 control-label">DNI</label>
           <div class="col-sm-4">
-            <input type="text" class="form-control" id="dni" name="dni" placeholder="DNI">
+            <input value="<?php echo $item->dni ?>"  type="text" class="form-control" id="dni" name="dni" placeholder="DNI">
             
           </div>
         </div>

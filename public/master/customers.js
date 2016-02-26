@@ -1,25 +1,55 @@
-$(document).on('ready', function() {
-	
-	  $("#tabla").DataTable();
+;
+$(function () {
 
 
-	  $('.btnAdd').on('click', function(event) {
-	  	event.preventDefault();
-	 
-	 		Common._alert_succes("Cliente agregado")
+    $("#tabla").DataTable();
 
-	  });
 
-	    $('.btnUpdate').on('click', function(event) {
-	  	event.preventDefault();
-	 
-	 	Common._alert_succes("Cliente actualizado")
+    $('.btnAdd').on('click', function (event) {
+        event.preventDefault();
 
-	  });
-	   
-	   
+        var _this = $(this);
+        var form = _this.closest('form');
+        $.ajax({
+            url: URL + 'customers/store',
+            type: 'post',
+            dataType: 'json',
+            data: form.serializeArray()
+        })
+        .done(function () {
+            console.log("success");
+        })
+        .fail(function () {
+            console.log("error");
+        });
 
-	
+    });
+
+    $('.btnUpdate').on('click', function (event) {
+        event.preventDefault();
+
+        alert("sa")
+        var _this = $(this);
+        var form = _this.closest('form');
+        $.ajax({
+            url: URL + 'customers/update',
+            type: 'post',
+            dataType: 'json',
+            data: form.serializeArray()
+        })
+        .done(function () {
+            console.log("success");
+        })
+        .fail(function () {
+            console.log("error");
+        });
+
+
+    });
+
+
+
+
 });
 
  

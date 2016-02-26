@@ -17,8 +17,6 @@ class Customers extends CI_Controller {
         $this->controller = strtolower(get_class()) ;
 
         $this->load->model("Customers_model");
-
-
         
 	}    
 
@@ -31,33 +29,54 @@ class Customers extends CI_Controller {
 	public function store()
 	{
 		
-		
-        $_post = $this->input->post();
+		$_post = $this->validate_post();
 
 		$_result =  $this->Customers_model->add($_post );
 
 		if ($_result) 
 
-			_build_json(TRUE,'Customers Add Ok');	
+			_build_json(TRUE,'Customers Add Ok');
 
 		else
-
 			_build_json();	  
         
+	}
+
+	private function validate_post()
+	{
+
+		$_name = $this->input->post('name',TRUE);
+		if (empty($_name)) 
+			_build_json(FALSE,'Por favor, ingresar Nombre');
+		$data['name'] = $_name; 
+
+		$_last_name = $this->input->post('last_name',TRUE);
+		if (empty($_last_name)) 
+			_build_json(FALSE,'Por favor, ingresar Apellidos');
+		$data['last_name'] = $_last_name; 
+
+
+		$_dni = $this->input->post('dni',TRUE);
+		if (empty($_dni)) 
+			_build_json(FALSE,'Por favor, ingresar DNI');
+		$data['dni'] = $_dni; 
+
+		return $data;
+
 
 	}
+
+
 
 	/**
      * show: Load List Customers
      *
      * @return View
      */
+
 	public function show()
 	{
 
-		
-
- 
 		$data["controller"] = $this->controller;
 
 		$data['items'] = $this->Customers_model->get();
@@ -98,6 +117,9 @@ class Customers extends CI_Controller {
 		if (!$this->Customers_model->get_by_id($id))
 			 exit(json_encode(array('status'=>FALSE,'message'=>'id no registrado')));
 
+
+		$data['item'] = $this->Customers_model->get_by_id($id);
+
 		$data["controller"] = $this->controller;
 
 		$data["id"] = $id;
@@ -116,13 +138,12 @@ class Customers extends CI_Controller {
 	public function update()
 	{
 
- 
-    	$data['nombre']=$this->input->post('nombre',TRUE);
-    	$data['apellidos']=$this->input->post('apellidos',TRUE);
-    	$data['dni']=$this->input->post('dni',TRUE);
+ 		$id = $this->input->post('id',TRUE);
+    	
+    	$_post = $this->validate_post();
 
-		$_result =  $this->Customers_model->update($data,$id);
-
+		$_result =  $this->Customers_model->update($_post,$id);
+		 
 		if ($_result) 
 
 			_build_json(TRUE,'Customers Update Ok');	
